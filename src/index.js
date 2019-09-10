@@ -13,7 +13,7 @@ class SeerbitPay extends Component {
       class: this.props.class || this.props.className || ""
     };
   }
-  base_url = "http://bc-design.surge.sh/"; //"https://checkout.seerbit.com/"; //"http://localhost:3000/";
+  base_url = "https://checkout.seerbit.com/"; //"http://localhost:3000/"; //"http://bc-design.surge.sh/";
 
   componentDidMount() {
     // window.document.write(this.seerbit_script);
