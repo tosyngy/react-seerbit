@@ -13,10 +13,9 @@ class SeerbitPay extends Component {
       class: this.props.class || this.props.className || ""
     };
   }
-  base_url = "https://checkout.seerbit.com/";
+  base_url = "https://checkout.seerbitapi.com/";
 
   componentDidMount() {
-    // window.document.write(this.seerbit_script);
     this.loadscriptAndUpdateState();
   }
 
@@ -31,7 +30,7 @@ class SeerbitPay extends Component {
       },
       () => {
         // if (this.props.embed) {
-        this.paywithSeerbit();
+        // this.paywithSeerbit();
         // }
       }
     );
