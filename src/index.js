@@ -108,6 +108,7 @@ class SeerbitPay extends Component {
             className={this.state.class}
             onClick={this.paywithSeerbit}
             disabled={this.state.disabled}
+            type={CustomTag}
           >
             {this.state.text}
           </CustomTag>
@@ -124,7 +125,7 @@ SeerbitPay.propTypes = {
   country: PropTypes.string,
   description: PropTypes.string,
   tranref: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired, //in kobo
+  amount: PropTypes.number.isRequired,
   public_key: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
