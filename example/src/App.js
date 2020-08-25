@@ -6,7 +6,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      public_key: "************",
+      public_key: "YOUR_API_KEY",
       amount: 100,
       tranref: new Date().getTime(),
       customization: {
