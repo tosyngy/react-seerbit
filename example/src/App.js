@@ -23,7 +23,6 @@ export default class App extends Component {
     };
   }
 
-  
   close = (close) => {
     console.log(close);
   };
