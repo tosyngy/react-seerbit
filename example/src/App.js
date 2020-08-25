@@ -8,14 +8,26 @@ export default class App extends Component {
     this.state = {
       public_key: "************",
       amount: 100,
-      tranref: "Pg5" + new Date().getTime()
+      tranref: new Date().getTime(),
+      customization: {
+        theme: {
+          border_color: "#000000",
+          background_color: "#004C64",
+          button_color: "#0084A0",
+        },
+        payment_method: ["card", "account", "transfer", "wallet"],
+        display_fee: true, // true 
+        display_type: "embed", //inline
+        logo: "logo_url | base64", 
+      }
     };
   }
 
-  close = close => {
+  
+  close = (close) => {
     console.log(close);
   };
-  callback = response => {
+  callback = (response) => {
     console.log(response);
   };
   render() {
@@ -32,6 +44,11 @@ export default class App extends Component {
         close={this.close}
         amount={this.state.amount}
         tag={"button"}
+        full_name={"John Doe"}
+        email={"a@b.com"}
+        mobile_no={"00000000000"}
+        customization={this.state.customization}
+        version={"v1"}
       />
     );
   }

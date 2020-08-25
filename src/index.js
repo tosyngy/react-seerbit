@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, version } from "react";
 import PropTypes from "prop-types";
 
 class SeerbitPay extends Component {
@@ -10,7 +10,7 @@ class SeerbitPay extends Component {
     this.state = {
       ...this.props,
       scriptLoaded: null,
-      class: this.props.class || this.props.className || ""
+      class: this.props.class || this.props.className || "",
     };
   }
   base_url = "https://checkout.seerbitapi.com/";
@@ -22,11 +22,11 @@ class SeerbitPay extends Component {
   loadscriptAndUpdateState() {
     this.setState(
       {
-        scriptLoaded: new Promise(resolve => {
+        scriptLoaded: new Promise((resolve) => {
           this.loadScript(() => {
             resolve();
           });
-        })
+        }),
       },
       () => {
         // if (this.props.embed) {
@@ -38,7 +38,7 @@ class SeerbitPay extends Component {
 
   loadScript(callback) {
     const script = document.createElement("script");
-    script.src = `${this.base_url}api/v1/seerbit.js`;
+    script.src = `${this.base_url}api/${version}/seerbit.js`;
     document.getElementsByTagName("head")[0].appendChild(script);
     if (script.readyState) {
       // IE
@@ -72,7 +72,7 @@ class SeerbitPay extends Component {
       if (nextProps[index] !== prevState[index]) {
         return {
           scriptLoaded: null,
-          [index]: nextProps[index]
+          [index]: nextProps[index],
         };
       }
     }
@@ -89,9 +89,12 @@ class SeerbitPay extends Component {
           description: this.state.description,
           country: this.state.country,
           amount: this.state.amount,
-          clientappcode: this.state.clientappcode,
           callbackurl: this.state.callbackurl,
-          public_key: this.state.public_key
+          public_key: this.state.public_key,
+          full_name: this.state.full_name,
+          email: this.state.email,
+          mobile_no: this.state.mobile_no,
+          customization: this.state.customization,
         };
         let callback = this.state.callback;
         let close = this.state.close;
@@ -129,13 +132,18 @@ SeerbitPay.propTypes = {
   public_key: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  full_name: PropTypes.string,
+  email: PropTypes.string,
+  mobile_no: PropTypes.string,
+  customization: PropTypes.object,
 };
 
 SeerbitPay.defaultProps = {
   text: "Make Payment",
   currency: "NGN",
-  tag: "button"
+  tag: "button",
+  version: "v2",
 };
 
 export default SeerbitPay;
