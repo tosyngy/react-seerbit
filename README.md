@@ -25,7 +25,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      public_key: "************",
+      public_key: "YOUR_API_KEY",
       amount: 100,
       tranref: new Date().getTime(),
       customization: {
@@ -42,16 +42,15 @@ export default class App extends Component {
     };
   }
 
-  close = close => {
+  close = (close) => {
     console.log(close);
   };
-  callback = response => {
+  callback = (response) => {
     console.log(response);
   };
   render() {
     return (
-      <div>
-         <SeerbitPay
+      <SeerbitPay
         className="btn seerbit-btn"
         tranref={this.state.tranref}
         currency={"NGN"}
@@ -69,7 +68,6 @@ export default class App extends Component {
         customization={this.state.customization}
         version={"v1"}
       />
-      </div>
     );
   }
 }
