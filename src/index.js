@@ -1,4 +1,4 @@
-import React, { Component, Fragment, version } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
 class SeerbitPay extends Component {
@@ -38,7 +38,7 @@ class SeerbitPay extends Component {
 
   loadScript(callback) {
     const script = document.createElement("script");
-    script.src = `${this.base_url}api/${version}/seerbit.js`;
+    script.src = `${this.base_url}api/${this.props.version}/seerbit.js`;
     document.getElementsByTagName("head")[0].appendChild(script);
     if (script.readyState) {
       // IE
@@ -137,6 +137,7 @@ SeerbitPay.propTypes = {
   email: PropTypes.string,
   mobile_no: PropTypes.string,
   customization: PropTypes.object,
+  version: PropTypes.string,
 };
 
 SeerbitPay.defaultProps = {
