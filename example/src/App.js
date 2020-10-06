@@ -48,6 +48,7 @@ export default class App extends Component {
         mobile_no={"00000000000"}
         customization={this.state.customization}
         version={"v1"}
+        text={'Pay with SeerBit'}
       />
     );
   }

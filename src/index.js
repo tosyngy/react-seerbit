@@ -138,6 +138,7 @@ SeerbitPay.propTypes = {
   mobile_no: PropTypes.string,
   customization: PropTypes.object,
   version: PropTypes.string,
+  text:  PropTypes.string,
 };
 
 SeerbitPay.defaultProps = {
